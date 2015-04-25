@@ -58,6 +58,10 @@ function knightTour(graph, cellId, limit) {
 
   if (path.length < limit) {
     var neighbors = vertex.connectedTo;
+    neighbors.sort(function (a, b) {
+      return graph.getVertex(a).connectedTo.length - graph.getVertex(b).connectedTo.length;
+    });
+
     var i = 0;
 
     while (i < neighbors.length && !done) {
@@ -78,9 +82,9 @@ function knightTour(graph, cellId, limit) {
   return done;
 }
 
-knightTour(knightGraph, process.argv[2], 64);
+knightTour(knightGraph, Number(process.argv[2]), 64);
 console.log(path);
 
 var fs = require('fs');
 
-fs.writeFileSync('path.txt', path.toString());
+// fs.writeFileSync('path.txt', path.toString());
