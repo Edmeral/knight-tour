@@ -1,7 +1,6 @@
 function Vertex(key) {
   this.id = key;
-  this.predecessor = null;
-  this.color = 'white';
+  this.visited = false;
   this.connectedTo = [];
 }
 
@@ -11,12 +10,10 @@ Vertex.prototype.addNeighbor = function(neighbor) {
 
 function Graph() {
   this.vertList = {};
-  this.numVertices = 0;
 }
 
 Graph.prototype = {
   addVertex: function(key) {
-    this.numVertices++;
     var newVertex = new Vertex(key);
     this.vertList[key] = newVertex;
     return newVertex;
