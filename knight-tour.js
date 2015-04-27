@@ -45,7 +45,8 @@ function knightGraph(boardSize) {
 }
 
 var Graph = require('./graph');
-var knightGraph = knightGraph(8);
+var boardSize = 8;
+var knightGraph = knightGraph(boardSize);
 
 var path = [];
 
@@ -82,7 +83,7 @@ function knightTour(graph, cellId, limit) {
   return done;
 }
 
-knightTour(knightGraph, Number(process.argv[2]), 64);
+knightTour(knightGraph, Number(process.argv[2]), boardSize * boardSize);
 process.stdout.write(path.toString());
 
 var fs = require('fs');
