@@ -63,12 +63,9 @@ function knightTour(graph, cellId, limit) {
       return graph.getVertex(a).connectedTo.length - graph.getVertex(b).connectedTo.length;
     });
 
-    var i = 0;
-
-    while (i < neighbors.length && !done) {
+    for (var i = 0; i < neighbors.length && !done; i++) {
       if (!(graph.getVertex(neighbors[i]).visited))
         done = knightTour(graph, neighbors[i], limit);
-      i++;
     }
 
     if (!done) {
