@@ -18,7 +18,9 @@ function genLegalMoves(x, y, boardSize) {
       newMoves.push([newX, newY]);
   }
 
-  return newMoves;
+  return newMoves.map(function(coordinates) {
+    return posToVertId(coordinates[0], coordinates[1], boardSize);
+  });
 }
 
 function posToVertId(x, y, boardSize) {
@@ -34,10 +36,8 @@ function knightGraph(boardSize) {
       var vertId = posToVertId(x, y, boardSize);
       var newPositions = genLegalMoves(x, y, boardSize);
 
-      for (var i in newPositions) {
-        var posId = posToVertId(newPositions[i][0], newPositions[i][1], boardSize);
-        graph.addEdge(vertId, posId);
-      }
+      for (var i in newPositions) 
+        graph.addEdge(vertId, newPositions[i]);
     }
   }
 
