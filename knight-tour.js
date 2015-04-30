@@ -60,12 +60,12 @@ function knightTour(graph, cellId, limit) {
   if (path.length < limit) {
     var neighbors = vertex.connectedTo;
     neighbors.sort(function (a, b) {
-      return graph.getVertex(a).connectedTo.length - graph.getVertex(b).connectedTo.length;
+      return a.connectedTo.length - b.connectedTo.length;
     });
-
+    
     for (var i = 0; i < neighbors.length && !done; i++) {
-      if (!(graph.getVertex(neighbors[i]).visited))
-        done = knightTour(graph, neighbors[i], limit);
+      if (!neighbors[i].visited)
+        done = knightTour(graph, neighbors[i].id, limit);
     }
 
     if (!done) {
@@ -82,7 +82,6 @@ function knightTour(graph, cellId, limit) {
 
 knightTour(knightGraph, Number(process.argv[2]), boardSize * boardSize);
 process.stdout.write(path.toString());
-
 var fs = require('fs');
 
 // fs.writeFileSync('path.txt', path.toString());

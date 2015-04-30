@@ -30,7 +30,10 @@ Graph.prototype = {
     if (!(to in this.vertList))
       this.addVertex(to);
 
-    this.vertList[from].addNeighbor(to);
+    from = this.getVertex(from);
+    to = this.getVertex(to);
+
+    from.addNeighbor(to);
   } 
 };
 
