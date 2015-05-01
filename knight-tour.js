@@ -50,10 +50,9 @@ var knightGraph = knightGraph(boardSize);
 
 var path = [];
 
-function knightTour(graph, cellId, limit) {
-  var vertex = graph.getVertex(cellId);
+function knightTour(graph, vertex, limit) {
   vertex.visited = true;
-  path.push(cellId);
+  path.push(vertex.id);
 
   var done = false;
 
@@ -62,10 +61,10 @@ function knightTour(graph, cellId, limit) {
     neighbors.sort(function (a, b) {
       return a.connectedTo.length - b.connectedTo.length;
     });
-    
+
     for (var i = 0; i < neighbors.length && !done; i++) {
       if (!neighbors[i].visited)
-        done = knightTour(graph, neighbors[i].id, limit);
+        done = knightTour(graph, neighbors[i], limit);
     }
 
     if (!done) {
@@ -80,7 +79,7 @@ function knightTour(graph, cellId, limit) {
   return done;
 }
 
-knightTour(knightGraph, Number(process.argv[2]), boardSize * boardSize);
+knightTour(knightGraph, knightGraph.getVertex(process.argv[2]), boardSize * boardSize);
 process.stdout.write(path.toString());
 var fs = require('fs');
 
