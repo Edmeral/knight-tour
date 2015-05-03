@@ -7,8 +7,8 @@ function genLegalMoves(x, y, boardSize) {
     return false;
   }
 
-  newMoves = [];
-  moveOffsets =  [[-1,-2], [-1,2], [-2,-1], [-2,1], [1,-2], [1,2], [2,-1], [2,1]];
+  var newMoves = [];
+  var moveOffsets =  [[-1,-2], [-1,2], [-2,-1], [-2,1], [1,-2], [1,2], [2,-1], [2,1]];
 
   for (var i in moveOffsets) {
     var newX = x + moveOffsets[i][0];
