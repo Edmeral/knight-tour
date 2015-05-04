@@ -18,8 +18,8 @@ function genLegalMoves(x, y, boardSize) {
       newMoves.push([newX, newY]);
   }
 
-  return newMoves.map(function(coordinates) {
-    return posToVertId(coordinates[0], coordinates[1], boardSize);
+  return newMoves.map(function(coords) {
+    return posToVertId(coords[0], coords[1], boardSize);
   });
 }
 
@@ -33,11 +33,11 @@ function knightGraph(boardSize) {
 
   for (var y = 0; y < boardSize; y++) {
     for (var x = 0; x < boardSize; x++) {
-      var vertId = posToVertId(x, y, boardSize);
-      var newPositions = genLegalMoves(x, y, boardSize);
+      var squareId = posToVertId(x, y, boardSize);
+      var legalMoves = genLegalMoves(x, y, boardSize);
 
-      for (var i in newPositions) 
-        graph.addEdge(vertId, newPositions[i]);
+      for (var i in legalMoves) 
+        graph.addEdge(squareId, legalMoves[i]);
     }
   }
 
