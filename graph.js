@@ -30,12 +30,11 @@ Graph.prototype = {
     if (!(to in this.vertList))
       this.addVertex(to);
 
-    from = this.getVertex(from);
-    to = this.getVertex(to);
+    fromVertex = this.getVertex(from);
+    toVertex = this.getVertex(to);
 
-    from.addNeighbor(to);
+    fromVertex.addNeighbor(toVertex);
   } 
 };
 
 module.exports = Graph;
-
