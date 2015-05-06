@@ -1,6 +1,6 @@
 Calculates the [Knight's tour](http://en.wikipedia.org/wiki/Knight%27s_tour) path, beginning at certain position.
 
-Running `$ node knight-tour.js 0`would give this output:
+Running `$ node knight-tour.js 0` would give this output:
 
 ```
 0,17,32,49,59,53,63,46,61,55,38,23,6,12,2,8,25,40,57,51,41,56,50,60,54,39,22,7,13,3,9,24,18,1,16,33,48,58,52,62,47,30,15,5,11,26,43,28,45,35,20,14,29,44,34,19,4,10,27,42,36,21,31,37
