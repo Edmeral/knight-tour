@@ -27,7 +27,7 @@ function posToVertId(x, y, boardSize) {
   return  x + y * boardSize;
 }
 
-function dfs(vertex, limit) {
+function dfs(vertex, boardSize) {
   vertex.visited = true;
   path.push(vertex.id);
 
@@ -43,7 +43,7 @@ function dfs(vertex, limit) {
 
   for (var i = 0; i < neighbors.length && !done; i++) {
     if (!neighbors[i].visited)
-      done = dfs(neighbors[i], limit);
+      done = dfs(neighbors[i], boardSize);
   }
 
   if (!done) {
@@ -72,6 +72,6 @@ for (var x = 0; x < boardSize; x++) {
 
 var path = [];
 
-dfs(chessBoard.getVertex(process.argv[2]), boardSize * boardSize);
+dfs(chessBoard.getVertex(process.argv[2]), boardSize);
 
 process.stdout.write(path.toString());
