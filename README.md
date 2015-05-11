@@ -1,4 +1,4 @@
-Calculates the [Knight's tour](http://en.wikipedia.org/wiki/Knight%27s_tour) path, beginning at certain position.
+Calculates the [Knight's tour](http://en.wikipedia.org/wiki/Knight%27s_tour) path, beginning at a given position.
 
 Running `$ node knight-tour.js 0` would give this output:
 
